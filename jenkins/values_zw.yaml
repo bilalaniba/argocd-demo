@@ -162,7 +162,7 @@ jenkins:
       - job-import-plugin:3.6
 
     ingress:
-      enabled: false
+      enabled: true
       paths:
         - backend:
             service:
