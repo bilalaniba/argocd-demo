@@ -3,10 +3,6 @@ kind: Application
 metadata:
   name: jenkins.argo.application
   namespace: jenkins
-  annotations:
-    argocd.argoproj.io/manifest-generate-paths: .
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
