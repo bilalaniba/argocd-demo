@@ -176,6 +176,10 @@ jenkins:
       apiVersion: "networking.k8s.io/v1"
       annotations: { kubernetes.io/ingress.class: nginx }
 
+      tls:
+        - secretName: bzk-tls-cicd
+          hosts:
+            - jenkins.rijksportaal.overheid-i.nl
     hostAliases:
       - ip: 172.21.1.14
         hostnames:
