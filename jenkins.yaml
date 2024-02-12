@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins.argo.application
+  namespace: jenkins
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/bilalaniba/argocd-demo.git
+    targetRevision: HEAD
+    path: jenkins
+    helm:
+      valueFiles:
+        - values_zw.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-jenkins
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
