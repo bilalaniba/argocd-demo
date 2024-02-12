@@ -11,7 +11,7 @@ spec:
     path: jenkins
     helm:
       valueFiles:
-        - values_zw.yaml
+        - jenkins/values_zw.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argo-jenkins
